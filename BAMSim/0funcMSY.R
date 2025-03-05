@@ -55,13 +55,14 @@ MSY.func <- function(steep, R0, M, wgt, sp.frac = 0.0, reprod.age, selL, selD, s
   if (!is.numeric(selZ)) stop("Non-numeric value for Z selectivity at age!")
 
   if (verbose) {
-    if (BC == 1) {
+    if (SR.bc == 1) {
       cat("*** MSY NOTE: Estimates contain no bias correction.\n")
     } else {
       cat("*** NOTE: Estimates contain bias correction (mean unbiased).\n")
     }
   }
-
+  
+  nages <- length(selL)
   ## INITIALIZATION
   if (length(M) > 1) {
     M_age <- M
