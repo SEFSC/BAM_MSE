@@ -35,7 +35,7 @@ lenprob.fcn <- function(len.mu, len.cv, len.bins, len.binw) {
       lenprob[i, l] <- cprob_lenvec[l] - cprob_lenvec[l - 1]
     }
     # last length bin is a plus group
-    zscore_len <- ((lenbins[nlenbins] - 0.5 * len.binw) - len.mu[i]) / len_sd[i]
+    zscore_len <- ((len.bins[nlenbins] - 0.5 * len.binw) - len.mu[i]) / len_sd[i]
     lenprob[i, nlenbins] <- 1.0 - pnorm(zscore_len)
     lenprob[i, ] <- lenprob[i, ] / (1.0 - cprob_lzero) # renormalize to account for any prob mass below 0
   }
